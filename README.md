@@ -9,3 +9,13 @@ Planilhas e anotações podem ser utilizadas para ajudar nessa tarefa, porém o 
 ### Solução
 
 Com o uso do MyCards a tarefa de dividir os valores da fatura do cartão se torna mais fácil, com a ajuda de componentes mais interativos e de fáci uso para qualquer usuário.
+
+## Com o sistema será possível:
+
+ - Criar vários perfis de cartões
+ - Adicionar usuários de um determinado cartão
+ - Para cada usuário adicionar um valor de compra no cartão 
+ - Para cada usuário adicionar uma descrição da sua compra no cartão
+ - Para cada usuário adicionado ver o total a pagar na fatura do cartão
+ - Adicionar faturas futuras do perfil do cartão
+ - Visualizar faturas futuras de cada cartão
