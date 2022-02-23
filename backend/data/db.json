@@ -1,5 +1,5 @@
 {
-    "users": [
+    "persons": [
         {
             "id": 1,
             "name": "Marcelo"
@@ -7,6 +7,25 @@
 
     ],
     "cards": [
-
+        {
+            "id": 1,
+            "name": "nubank",
+            "persons": [
+                {
+                    "id": 1,
+                    "values": [250]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "digio",
+            "persons": [
+                {
+                    "id": 1,
+                    "values": [250]
+                }
+            ]
+        }
     ]
 }
