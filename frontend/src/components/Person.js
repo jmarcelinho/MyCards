@@ -1,21 +1,26 @@
 import React, {useState} from "react";
+import ButtonValue from "./ButtonValue";
 
 function Person(props){
     const createElem = () => {
-        var list = [];
-        for(const value of props.person.values){
-            list.push(value);
+        let list = [];
+        for(let i = 0; i < props.maior; i++){
+            if(i < props.person.values.length){
+                list.push(<div key={i}>{<ButtonValue value={props.person.values[i]}></ButtonValue>}</div>)
+            }else{
+                list.push(<div key={i}></div>)
+            }
         }
         return list;
     }
     return (
-        <> 
-            {/* <th>{props.persons.name}</th> */}
-            <th>{props.person.name}</th>
+        
+        <div className="col"> 
+            <div className="header">{props.person.name}</div>
             {
-                createElem().map((value) => <td>{value}</td>)
+                createElem()
             }
-        </>
+        </div>
     );
 }
 

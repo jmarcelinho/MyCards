@@ -13,6 +13,7 @@
             "persons": [
                 {
                     "id": 1,
+                    "name": "Marcelo",
                     "values": [250]
                 }
             ]
@@ -22,7 +23,8 @@
             "name": "digio",
             "persons": [
                 {
-                    "id": 1,
+                    "id": 2,
+                    "name": "Joao",
                     "values": [250]
                 }
             ]

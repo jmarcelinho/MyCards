@@ -2,7 +2,7 @@ const { json } = require('express');
 var express = require('express');
 var router = express.Router();
 
-let users = []
+let users = [];
 
 // const fs = require('fs');
 // const data = fs.readFileSync('/file.md'); // blocks here until file is read
