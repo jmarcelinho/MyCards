@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import ButtonValue from "./ButtonValue";
+import "./Person.css";
 
 function Person(props){
-    const createElem = () => {
+    const listValues = () => {
         let list = [];
         for(let i = 0; i < props.maior; i++){
             if(i < props.person.values.length){
@@ -18,7 +19,7 @@ function Person(props){
         <div className="col"> 
             <div className="header">{props.person.name}</div>
             {
-                createElem()
+                listValues()
             }
         </div>
     );
