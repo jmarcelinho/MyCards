@@ -1,11 +1,4 @@
 {
-    "persons": [
-        {
-            "id": 1,
-            "name": "Marcelo"
-        }
-
-    ],
     "cards": [
         {
             "id": 1,

@@ -2,30 +2,53 @@ const { json } = require('express');
 var express = require('express');
 var router = express.Router();
 
-let users = [];
-
-// const fs = require('fs');
-// const data = fs.readFileSync('/file.md'); // blocks here until file is read
-// Você pode fazer isso de forma assíncrona (quando a leitura for completa uma função será chamada
+let cards = [];
 const fs = require('fs');
-fs.readFile('./data/db.json', (err, data) => {
-  if (err) throw err;
+const data = fs.readFileSync('./data/db.json');
+let jsonData = JSON.parse(data);
+cards = jsonData.cards;
 
-  let jsonData = JSON.parse(data)
+function getUsers(id){
+  let users = [];
+  
+  if(id > 0 && id <= cards.length){
+    users = cards[id - 1].persons;
+  }
 
-  users = jsonData.users
-});
+  
+  return users;
+}
 
+function addUser(id, newPerson){
+  fs.readFile('./data/db.json', (err, data) => {
+    if (err) throw err;
+  
+    var cards = JSON.parse(data)
+  
+  });
+
+  fs.appendFile('./data/db.json', newPerson, (err, data) => {
+    if (err) throw err;
+  
+    let jsonData = JSON.parse(data)
+  
+    jsonData.cards[id].persons = newPerson;
+
+    });
+}
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
+  let users = getUsers(req.params.id);
   res.json(users);
 });
 
-router.post('/', function(req, res, next) {
+router.post('/:id', function(req, res, next) {
+  let users = getUsers(req.params.id);
   let newId = users.length + 1;
   let newName = req.body.user;
   users.push({"id": newId, "name": newName});
+  addUser(req.params.id, users);
   res.json(users)
 });
 
