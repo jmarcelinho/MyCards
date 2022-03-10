@@ -3,14 +3,29 @@ import './Card.css'
 import Person from './Person'
 
 function Card(props){
-    const [cards, setCards] = useState([{"id": 1,"name": "nubank","persons": [{"id": 1,"name":"Marcelo", "values": [250, 300, 50]}, {"id": 2, "name":"Joao", "values": [100, 50]}]}]);
-    const [persons, setPersons] = useState([{"id": 1,"name":"Marcelo", "values": [250, 300, 50]},{"id": 3,"name":"Clara", "values": [100, 200, 50, 300, 350, 75, 15, 10]}, {"id": 2, "name":"Joao", "values": [100, 50]}]);
+    const [cards, setCards] = useState([{"name": "Loading"}]);
+    const [persons, setPersons] = useState([]);
     
     useEffect( () => {
-        // async function fetchData(){
-        //     let res = await fetch('');
-        // }
-    });
+        async function fetchData(){
+            let resp = await fetch('http://localhost:3000/cards/');
+            let cardsReq = await resp.json();
+            console.log(cardsReq);
+            setCards(cardsReq);
+        }
+        fetchData()
+    }, [props.id]);
+    
+    useEffect( () => {
+        async function fetchData(){
+            let resp = await fetch('http://localhost:3000/persons/' + (props.id + 1));
+            let personsReq = await resp.json();
+            setPersons(personsReq);
+        }
+        console.log("teste");
+        fetchData()
+    }, [props.id]);
+
     const calcMaior = () => {
         let aux = 0;
         for(let p of persons){
